@@ -1,0 +1,28 @@
+{
+  "name": "C++ ROS2 Boost Interview Environment",
+  "image": "docker.io/ros:humble-ros-base", 
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {}
+  },
+  // Installs Boost, CMake, and essential build tools automatically on startup
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libboost-all-dev cmake build-essential gdb",
+  "customizations": {
+    "vscode": {
+      // Pre-installs extensions so the workspace has autocomplete and debugging ready
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "ms-iot.vscode-ros",
+        "ms-vsliveshare.vsliveshare" 
+      ],
+      "settings": {
+        // Allows the candidate to join instantly without an account or an "Accept" pop-up
+        "liveshare.guestApprovalRequired": false,
+        // CRITICAL: Allows the candidate to type commands in the terminal to compile/run code
+        "liveshare.allowGuestTaskExecution": true,
+        // Sets the default terminal to bash
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
